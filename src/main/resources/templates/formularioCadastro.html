@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Cadastro de Aluno Novo</title>
+</head>
+<body>
+<div class="container">
+<div class="mb-0">
+	<h2 class="display-6">Cadastrar Atleta</h2>
+</div>
+
+<form action="formularioNovo" method="POST">
+	<div class="form-group">
+		<label for="nome_aluno">Nome do Aluno:</label>
+		<input class="form-control" name="nome_aluno" placeholder="Informe o nome do Aluno:">
+	</div>
+	
+	<div class="form-group">
+		<label for="data_nasc">Data de Nascimento:</label>
+		<input class="form-control" name="data_nasc" placeholder="Informe a Data de Nascimento:">
+	</div>
+	
+	<label for="categoria">Categoria:</label>
+	<select class="form-control" name="categoria" id="categoria">
+            <option value="">Selecione a Categoria</option>
+            <option value="SUB-07">SUB-07</option>
+            <option value="SUB-08">SUB-08</option>
+            <option value="SUB-09">SUB-09</option>
+            <option value="SUB-10">SUB-10</option>
+            <option value="BABY-FUT">BABY-FUT</option>
+            <option value="FORMACAO">FORMAÇÃO</option>
+        </select>	
+	
+	<div class="form-group">
+		<label for="rg">RG:</label>
+		<input  class="form-control" name="rg" placeholder="Informe o RG do Aluno:" maxlength="9">
+	</div>
+	
+	<div class="form-group">
+		<label for="cpf">CPF:</label>
+		<input class="form-control" name="cpf" placeholder="Informe o CPF do aluno:" maxlength="11">	
+	</div>
+	
+	<div class="form-group">
+		<label for="responsavel">Responsável:</label>
+		<input class="form-control" name="responsavel" placeholder="Informe o nome do Responsável">
+	</div>
+	
+	<div class="form-group">
+		<label for="telefone">Telefone (com DDD):</label>
+		<input class="form-control" name="telefone" placeholder="Informe o telefone para contato: 119XXXXXXXX" maxlength="11">
+	</div>
+	
+	<div class="form-group">
+		<label for="observacoes">Observações:</label>
+		<input class="form-control" name="observacoes" placeholder="Comentários...">
+	</div>
+
+	
+		<button type="submit"> Cadastrar</button>
+</form>
+</div>
+</body>
+
+</html>
