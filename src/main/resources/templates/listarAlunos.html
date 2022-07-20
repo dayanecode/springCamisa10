@@ -8,31 +8,32 @@
 <body>
 
 <div class="container">
-	<table class="table table-striped">
-		<thead>
+	<table class="table table-striped" >
+		<thead class="thead-dark" >
 			<tr> 
 				<th scope="col"> # </th>
 				<th scope="col"> Nome do Aluno </th>
-				<th scope="col"> Data de Nascimento </th>
+				<th scope="col" > Nascimento</th>
 				<th scope="col"> Categoria </th>
 				<th scope="col"> RG </th>
 				<th scope="col"> CPF </th>
 				<th scope="col"> Responsável </th>	
 				<th scope="col"> Telefone </th>	
-				<th scope="col"> Situação </th>		
+				<!-- <th scope="col"> Situação </th>	-->
 			</tr>
  	</thead>
  	<tbody>
  		<tr th:each="alunos : ${listarAlunos}">
 			<td th:text="${alunos.id}"> 1 </td>
 		 	<td th:text="${alunos.nome_aluno}">  Nome do Aluno </td>
-			<td th:text="${alunos.data_nasc}">  Data de Nascimento </td>
+			<td th:text="${#dates.format(alunos.data_nasc, 'dd-MM-yyyy')}">  Data Nasc. </td>
+			<!-- <td th:text="${alunos.data_nasc}">  Data de Nascimento </td> -->
 		 	<td th:text="${alunos.categoria}"> Categoria </td>
-		 	<td th:text="${alunos.rg}"> Categoria </td>
-		 	<td th:text="${alunos.cpf}"> Categoria </td>
+		 	<td th:text="${alunos.rg}"> RG </td>
+		 	<td th:text="${alunos.cpf}"> CPF </td>
 		 	<td th:text="${alunos.responsavel}"> Responsável </td>
 		 	<td th:text="${alunos.telefone}"> Telefone </td>
-		 	<td th:text="${alunos.situacao}"> Situação </td>		 
+		 	<!-- <td th:text="${alunos.situacao}"> Situação </td> -->		 
 		 </tr>
  	</tbody>
  </table>

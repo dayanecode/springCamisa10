@@ -7,12 +7,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Camisa10Alunos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // FUNCIONA COM O MYSQL
 	private Long id;
 	private String nome_aluno;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date data_nasc;
 	private int idade;
 	private String categoria;
