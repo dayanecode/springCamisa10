@@ -1,0 +1,102 @@
+@charset "ISO-8859-1";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+.titulos {
+    font-family: 'Roboto Slab', serif
+}
+
+.bg-orange {
+    background-color: #f60;
+}
+
+
+footer {
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+    padding: 15px;
+}
+
+.redessociais {
+    text-align: center;
+    text-decoration: none;
+}
+
+h1,
+h4,
+h5 {
+    text-align: center;
+
+}
+
+
+/* Missão Visão e Valores */
+
+
+.col {
+    text-align: center;
+}
+
+
+.bi {
+    text-decoration: none;
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+}
+
+.icones {
+    height: 20px;
+    width: 20px;
+}
+
+/* Google Maps */
+.map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+.map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+/* Container Treinadores */
+.gallery {
+    /* 
+    O padding está definindo uma margem para o container com relação a tela*/
+    padding: 60px 40px;
+    min-height: 100vh;
+
+}
+
+.gallery img {
+    background-color: #fff;
+    /*O padding está definindo uma margem para tag img dentro do container, permitindo que a borda com bg-color fique exposta (apareça) caso contrário a imagem ficaria do tamanho do container */
+    padding: 15px;
+    width: 100%;
+
+}
+
+.biografia {
+    padding: 15px;
+    text-align: justify;
+    line-height: 2rem;
+}
+
+.instagram {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+}
