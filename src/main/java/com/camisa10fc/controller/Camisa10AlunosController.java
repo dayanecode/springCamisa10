@@ -45,22 +45,6 @@ public class Camisa10AlunosController {
 		alunosRepository.save(requisicao);
 		return "redirect:/listarAlunos";
 	}
-	
-	@GetMapping ("/listarAlunos/{id}")
-	public String alterarAluno(@PathVariable("id") long id, Model request) {
-		Optional<Camisa10Alunos> alunosOpt = alunosRepository.findById(id);
-		if (alunosOpt.isEmpty()) {
-			throw new IllegalArgumentException("Aluno inválido");			
-		}
-		request.addAttribute("alunos",alunosOpt.get());
-		return "/cadastrarAluno";
-	}
-	
-	@PostMapping("/listarAlunos/salvar")
-	public String salvarAluno(@ModelAttribute("alunos") Camisa10Alunos alunos) {
-		alunosRepository.save(alunos);
-		return "redirect:/cadastrarAlunos";
-	}
-	
+		
 
 }
