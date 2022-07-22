@@ -22,7 +22,7 @@ public class Camisa10AlunosController {
 	
 	@GetMapping("/home") 	//endpoint que será informado na URL
 	public String home() {
-		return "home"; 	
+		return "home"; 	//busca o arquivo.html com este nome que estiver dentro de /templates 
 	}	
 	
 	@GetMapping("/listarAlunos") //Método que vai retornar as informações do banco de dados
