@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<title>Cadastro de Aluno Novo</title>
+<title>Cadastro de Aluno</title>
+
+<style> .mensagem { color: red;} </style>
+
 </head>
 <body>
 <div class="container">
 <div class="mb-0">
-	<h2 class="display-6">Cadastrar Atleta</h2>
+	<h2 class="display-6">Cadastrar Atleta</h2>	
+</div>
+<div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+	<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+	<span th:text="${mensagem}"></span>
 </div>
 
-	<form action="formularioNovo" method="POST">
+	<!--  <small class="status alert-danger" role="alert" th:text="${mensagem}"></small> -->
+	
+	<!-- INÍCIO DO FORMULÁRIO -->
+	<form action="#" th:action="@{/salvar}" th:object="${alunos}" method="post">	
+	
 	<div class="form-group">
-		<label for="nome_aluno">Nome do Aluno:</label>
-		<input class="form-control" name="nome_aluno" placeholder="Informe o nome do Aluno:" autofocus="autofocus">
+		<label for="nome_aluno">Nome do Aluno:</label>		
+		<input class="form-control" th:field="*{nome_aluno}" name="nome_aluno" placeholder="Informe o nome do Aluno:" autofocus="autofocus">
+		<div class="col-sm-5">
+		<span class="mensagem" th:if="${#fields.hasErrors('nome_aluno')}" th:errors="*{nome_aluno}"></span>
+		</div>
 	</div>
+	
 	
 	<div class="form-group">
 		<label for="data_nasc"> Data de Nascimento:</label>
@@ -63,6 +78,8 @@
 
 	
 		<button type="submit" class="btn btn-secondary"> Cadastrar</button>
+		
+		
 </form>
 </div>
 </body>

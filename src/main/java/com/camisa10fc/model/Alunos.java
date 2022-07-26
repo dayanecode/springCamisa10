@@ -6,36 +6,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
-@Entity
-public class Camisa10Alunos {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // FUNCIONA COM O MYSQL
+@Entity //Define que a nossa classe será uma tabela do banco de dados
+public class Alunos {
+	@Id //Atributo que se tornará chave primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // FUNCIONA COM O MYSQL Gerar ID automagicamente
 	private Long id;
 	
-
+	@NotNull
+	@Size(min =3, message = "O nome do aluno deve ter no mínimo 3 caracteres.")
 	private String nome_aluno;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	
 	private Date data_nasc;
+	
 	private int idade;
+	
+	@NotEmpty
 	private String categoria;
+	
 	private String rg;
 	private String cpf;
+	
+	@NotEmpty
 	private String responsavel;
+	
+	@NotEmpty
 	private String telefone;
+	
 	private String observacoes;	
-	private String situacao;
+	private String situacao = "ativo";
 		
 		
-	public Camisa10Alunos() {
+	public Alunos() {
 		super();
 	}
 
-	public Camisa10Alunos(Long id, String nome_aluno, Date data_nasc, int idade, String categoria, String rg,
+	public Alunos(Long id, String nome_aluno, Date data_nasc, int idade, String categoria, String rg,
 			String cpf, String responsavel, String telefone, String observacoes, String situacao) {
 		super();
 		this.id = id;
@@ -135,19 +152,14 @@ public class Camisa10Alunos {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;		
-		Camisa10Alunos other = (Camisa10Alunos) obj;
+		Alunos other = (Alunos) obj;
 		if (id == null) {	
 		if (other.id != null)
 			return false;
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
-	
-	
-	
-	
-	
-		
+	}
 
+		
 }
