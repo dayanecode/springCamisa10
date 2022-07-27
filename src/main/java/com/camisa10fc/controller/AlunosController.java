@@ -56,6 +56,7 @@ public class AlunosController {
 		} 
 		alunosRepository.save(alunos);
 		attributes.addFlashAttribute("mensagem", "Atleta salvo com sucesso!");
+//		return "formularioCadastro";
 		return "redirect:/listarAlunos";
 		
 	}

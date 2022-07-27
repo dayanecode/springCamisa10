@@ -23,65 +23,105 @@
 	<!--  <small class="status alert-danger" role="alert" th:text="${mensagem}"></small> -->
 	
 	<!-- INÍCIO DO FORMULÁRIO -->
-	<form action="#" th:action="@{/salvar}" th:object="${alunos}" method="post">	
+<form action="#" th:action="@{/salvar}" th:object="${alunos}" method="post"> 	
 	
 	<div class="form-group">
 		<label for="nome_aluno">Nome do Aluno:</label>		
 		<input class="form-control" th:field="*{nome_aluno}" name="nome_aluno" placeholder="Informe o nome do Aluno:" autofocus="autofocus">
 		<div class="col-sm-5">
-		<span class="mensagem" th:if="${#fields.hasErrors('nome_aluno')}" th:errors="*{nome_aluno}"></span>
+			<small><span class="mensagem" th:if="${#fields.hasErrors('nome_aluno')}" th:errors="*{nome_aluno}"></span></small>
 		</div>
 	</div>
 	
 	
 	<div class="form-group">
 		<label for="data_nasc"> Data de Nascimento:</label>
-		<input type="date" class="form-control" name="data_nasc" placeholder="Informe a Data de Nascimento:">
+		<input type="date" class="form-control" th:field="*{data_nasc}" name="data_nasc" placeholder="Informe a Data de Nascimento:">
+		<div class="col-sm-5">
+			<small><span class="mensagem" th:if="${#fields.hasErrors('data_nasc')}" th:errors="*{data_nasc}"></span></small>
+		</div>
 	</div>
 	
-	<label for="categoria">Categoria:</label>
-	<select class="form-control" name="categoria" id="categoria">
+	
+	<div class="form-group">
+		<label for="categoria">Categoria:</label>
+		<select class="form-control" th:field="*{categoria}" name="categoria" id="categoria">
             <option value="">Selecione a Categoria</option>
             <option value="SUB-07">SUB-07</option>
             <option value="SUB-08">SUB-08</option>
             <option value="SUB-09">SUB-09</option>
-            <option value="SUB-10">SUB-10</option>
+            <option value="SUB-10">SUB-10</option>    
+        </select>        
+        <div class="col-sm-5">
+			<small><span class="mensagem" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></span></small>
+		</div>
+	</div>
+	
+		<div class="form-group">
+		<label for="categoria">Turma:</label>
+		<select class="form-control" th:field="*{turma}" name="turma" id="turma">
+            <option value="">Selecione a Turma</option>
             <option value="BABY-FUT">BABY-FUT</option>
+            <option value="PERSONAL">COMPETIÇÃO</option>
             <option value="FORMACAO">FORMAÇÃO</option>
             <option value="PERSONAL">PERSONAL</option>
-        </select>	
+        </select>        
+        <div class="col-sm-5">
+			<small><span class="mensagem" th:if="${#fields.hasErrors('turma')}" th:errors="*{turma}"></span></small>
+		</div>
+	</div>
+	
+		<div class="form-group">
+		<label for="categoria">Turma:</label>
+		<select class="form-control" th:field="*{periodo}" name="periodo" id="periodo">
+            <option value="">Selecione o Período</option>
+            <option value="BABY-FUT">MANHÃ</option>
+            <option value="PERSONAL">TARDE</option>
+            <option value="FORMACAO">NOITE</option>           
+        </select>        
+        <div class="col-sm-5">
+			<small><span class="mensagem" th:if="${#fields.hasErrors('periodo')}" th:errors="*{periodo}"></span></small>
+		</div>
+	</div>
+	        	
 	
 	<div class="form-group">
 		<label for="rg">RG:</label>
-		<input  class="form-control" name="rg" placeholder="Informe o RG do Aluno (somente números):" maxlength="9">
+		<input  class="form-control" th:field="*{rg}" name="rg" placeholder="Informe o RG do Aluno (somente números):" maxlength="9">
 	</div>
+	
 	
 	<div class="form-group">
 		<label for="cpf">CPF:</label>
-		<input class="form-control" name="cpf" placeholder="Informe o CPF do aluno (somente números):" maxlength="11">	
+		<input class="form-control" th:field="*{cpf}" name="cpf" placeholder="Informe o CPF do aluno (somente números):" maxlength="11">	
 	</div>
+	
 	
 	<div class="form-group">
 		<label for="responsavel">Responsável:</label>
-		<input class="form-control" name="responsavel" placeholder="Informe o nome do Responsável">
+		<input class="form-control" th:field="*{responsavel}" name="responsavel" placeholder="Informe o nome do Responsável">
+		 <div class="col-sm-5">
+			<small><span class="mensagem" th:if="${#fields.hasErrors('responsavel')}" th:errors="*{responsavel}"></span></small> 
+		</div>
 	</div>
+
 	
 	<div class="form-group">
 		<label for="telefone">Telefone (com DDD):</label>
-		<input class="form-control" name="telefone" placeholder="Informe o telefone para contato: 119XXXXXXXX" maxlength="11">
+		<input class="form-control" th:field="*{telefone}" name="telefone" placeholder="Informe o telefone para contato: 119XXXXXXXX" maxlength="11">
+	  <div class="col-sm-5">
+			<small><span  class="mensagem" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span></small>
+		</div>
 	</div>
 	
 	<div class="form-group">
 		<label for="observacoes">Observações:</label>
-		<input class="form-control" name="observacoes" placeholder="Comentários...">
+		<input class="form-control" th:field="*{observacoes}" name="observacoes" placeholder="Comentários...">
 	</div>
-
 	
 		<button type="submit" class="btn btn-secondary"> Cadastrar</button>
-		
-		
 </form>
 </div>
-</body>
+	</body>
 
 </html>

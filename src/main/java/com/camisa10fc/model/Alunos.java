@@ -22,37 +22,43 @@ public class Alunos {
 	private Long id;
 	
 	@NotNull
-	@Size(min =3, message = "O nome do aluno deve ter no mínimo 3 caracteres.")
+	@Size(min =3, message = "O nome do aluno deve conter mais de dois dígitos")
 	private String nome_aluno;
 	
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
 	private Date data_nasc;
 	
 	private int idade;
 	
-	@NotEmpty
+	@NotEmpty (message = "Selecione a categoria")
 	private String categoria;
 	
+	@NotEmpty (message = "Selecione a turma")
+	private String turma;
+	
+	@NotEmpty (message = "Selecione o período")
+	private String periodo;
+
 	private String rg;
+	
 	private String cpf;
 	
-	@NotEmpty
+	@NotEmpty (message = "Informe o nome do responsável pelo aluno")
 	private String responsavel;
 	
-	@NotEmpty
+	@NotEmpty (message = "Informe o telefone para contato")
 	private String telefone;
 	
 	private String observacoes;	
-	private String situacao = "ativo";
+	private String situacao = "ATIVO";
 		
 		
 	public Alunos() {
 		super();
 	}
 
-	public Alunos(Long id, String nome_aluno, Date data_nasc, int idade, String categoria, String rg,
+	public Alunos(Long id, String nome_aluno, Date data_nasc, int idade, String categoria, String turma, String periodo, String rg,
 			String cpf, String responsavel, String telefone, String observacoes, String situacao) {
 		super();
 		this.id = id;
@@ -60,6 +66,8 @@ public class Alunos {
 		this.data_nasc = data_nasc;
 		this.idade = idade;
 		this.categoria = categoria;
+		this.turma = turma;
+		this.turma = periodo;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.responsavel = responsavel;
@@ -99,6 +107,23 @@ public class Alunos {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+	
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
+		
+	public String getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(String periodo) {
+		this.periodo = periodo;
+	}
+		
 	public String getRg() {
 		return rg;
 	}
