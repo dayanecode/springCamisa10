@@ -7,6 +7,10 @@
     font-family: 'Roboto Slab', serif
 }
 
+.mensagem { 
+	color: red;
+} 
+
 .bg-orange {
     background-color: #f60;
 }

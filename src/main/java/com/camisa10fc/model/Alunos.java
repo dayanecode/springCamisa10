@@ -50,6 +50,15 @@ public class Alunos {
 	@NotEmpty (message = "Informe o telefone para contato")
 	private String telefone;
 	
+
+	private String logradouro;
+	private String numero;
+	private String complemento;
+	private String bairro;
+	private String cidade;
+	private String estado;
+	private String cep;		
+	
 	private String observacoes;	
 	private String situacao = "ATIVO";
 		
@@ -58,8 +67,15 @@ public class Alunos {
 		super();
 	}
 
-	public Alunos(Long id, String nome_aluno, Date data_nasc, int idade, String categoria, String turma, String periodo, String rg,
-			String cpf, String responsavel, String telefone, String observacoes, String situacao) {
+	public Alunos(Long id,
+			@NotNull @Size(min = 3, message = "O nome do aluno deve conter mais de dois dígitos") String nome_aluno,
+			Date data_nasc, int idade, @NotEmpty(message = "Selecione a categoria") String categoria,
+			@NotEmpty(message = "Selecione a turma") String turma,
+			@NotEmpty(message = "Selecione o período") String periodo, String rg, String cpf,
+			@NotEmpty(message = "Informe o nome do responsável pelo aluno") String responsavel,
+			@NotEmpty(message = "Informe o telefone para contato") String telefone, String logradouro, String numero,
+			String complemento, String bairro, String cidade, String estado, String cep, String observacoes,
+			String situacao) {
 		super();
 		this.id = id;
 		this.nome_aluno = nome_aluno;
@@ -67,16 +83,22 @@ public class Alunos {
 		this.idade = idade;
 		this.categoria = categoria;
 		this.turma = turma;
-		this.turma = periodo;
+		this.periodo = periodo;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.responsavel = responsavel;
 		this.telefone = telefone;
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
 		this.observacoes = observacoes;
 		this.situacao = situacao;
 	}
-	
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -148,6 +170,63 @@ public class Alunos {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public String getComplemento() {
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}	
+	
 	public String getObservacoes() {
 		return observacoes;
 	}
@@ -185,6 +264,7 @@ public class Alunos {
 			return false;
 		return true;
 	}
+
 
 		
 }
