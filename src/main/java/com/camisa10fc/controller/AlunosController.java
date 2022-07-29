@@ -40,8 +40,7 @@ public class AlunosController {
 		model.addAttribute("listarAlunos", lista);
 		return "listarAlunos";
 	}
-	
-	//AGORA VAI DAR CERTO!!!! 
+
 	@GetMapping("/cadastrarAluno")
 	public String adicionarAluno(Model model) {
 		model.addAttribute("alunos", new Alunos());
@@ -55,9 +54,9 @@ public class AlunosController {
 			return "formularioCadastro";
 		} 
 		alunosRepository.save(alunos);
-		attributes.addFlashAttribute("mensagem", "Atleta salvo com sucesso!");
-//		return "formularioCadastro";
-		return "redirect:/listarAlunos";
+		attributes.addFlashAttribute("mensagem", "Aluno inserido com sucesso!");
+		return "redirect:/cadastrarAluno";
+//		return "redirect:/listarAlunos";
 		
 	}
 

@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.NonNull;
 
 @Entity //Define que a nossa classe será uma tabela do banco de dados
 public class Alunos {

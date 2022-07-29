@@ -20,6 +20,7 @@
 <body class="bg-dark text-light">
     <!-- menu -->
     <!-- A classe navbar-expand-lg expande o menu a partir de telas mais largas (telas maiores)  -->
+    
     <nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: #383837;" >
         <div class="container mx-3"> <img src="./assets/images/LOGO/LOGO_Camisa_10-removebg-preview.png"
                 alt="Logo do camisa 10 FC" width="90" height="90">
@@ -43,13 +44,13 @@
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             O CLUBE
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#treinadores">Treinadores</a></li>
+                            <li><a class="dropdown-item" href="/#treinadores">Treinadores</a></li>
                             <li><a class="dropdown-item" href="#patrocinadores">Patrocinadores</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -65,10 +66,33 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#localizacao">LOCALIZAÇÃO</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cadastrarAluno">CADASTRO</a>
+                    
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                           INCLUSÃO
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/inserirPagamento">PAGAMENTO</a></li>
+                            <li><a class="dropdown-item" href="/cadastrarAluno">NOVO ALUNO</a></li>                      
+                         </ul>
                     </li>
-                    <li class="nav-item">
+                    
+                          <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                           CONSULTA
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/consultarPagamento">Pagamentos Realizados</a></li>
+                            <li><a class="dropdown-item" href="/listarAlunos">Alunos Cadastrados</a></li>                      
+                         </ul>
+                    </li>                     
+                               
+                   <li class="nav-item">
                         <a class="nav-link disabled">FALE CONOSCO</a>
                     </li>
                 </ul>
@@ -240,7 +264,6 @@
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <!--Google Maps-->
-
 
 
     <!-- TREINADORES-->
