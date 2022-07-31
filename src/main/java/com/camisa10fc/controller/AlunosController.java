@@ -49,10 +49,17 @@ public class AlunosController {
 	
 	@PostMapping ("/salvar")
 	public String salvarAluno(@Valid Alunos alunos, BindingResult result,
-				RedirectAttributes attributes) {
+				Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) { //verifica se existe algum erro na validação dos dados
 			return "formularioCadastro";
 		} 
+		
+		Alunos aluno = alunosRepository.findByNome(alunos.getNome());
+		if (aluno != null) {
+			model.addAttribute("alunoExiste", "Nome do aluno já existe no cadastro");
+			return "formularioCadastro";
+		}
+	
 		alunosRepository.save(alunos);
 		attributes.addFlashAttribute("mensagem", "Aluno inserido com sucesso!");
 		return "redirect:/cadastrarAluno";

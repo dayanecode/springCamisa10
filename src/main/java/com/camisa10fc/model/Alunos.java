@@ -22,7 +22,8 @@ public class Alunos {
 	
 	@NotNull
 	@Size(min =3, message = "O nome do aluno deve conter mais de dois dígitos")
-	private String nome_aluno;
+	private String nome;
+
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")	
@@ -67,7 +68,7 @@ public class Alunos {
 	}
 
 	public Alunos(Long id,
-			@NotNull @Size(min = 3, message = "O nome do aluno deve conter mais de dois dígitos") String nome_aluno,
+			@NotNull @Size(min = 3, message = "O nome do aluno deve conter mais de dois dígitos") String nome,
 			Date data_nasc, int idade, @NotEmpty(message = "Selecione a categoria") String categoria,
 			@NotEmpty(message = "Selecione a turma") String turma,
 			@NotEmpty(message = "Selecione o período") String periodo, String rg, String cpf,
@@ -77,7 +78,7 @@ public class Alunos {
 			String situacao) {
 		super();
 		this.id = id;
-		this.nome_aluno = nome_aluno;
+		this.nome = nome;
 		this.data_nasc = data_nasc;
 		this.idade = idade;
 		this.categoria = categoria;
@@ -104,11 +105,11 @@ public class Alunos {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNome_aluno() {
-		return nome_aluno;
+	public String getNome() {
+		return nome;
 	}
-	public void setNome_aluno(String nome_aluno) {
-		this.nome_aluno = nome_aluno;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public Date getData_nasc() {
 		return data_nasc;

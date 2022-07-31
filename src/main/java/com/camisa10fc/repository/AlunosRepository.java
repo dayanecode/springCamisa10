@@ -6,4 +6,5 @@ import com.camisa10fc.model.Alunos;
 
 public interface AlunosRepository extends JpaRepository<Alunos, Long> {
 
+	Alunos findByNome(String nome);
 }

@@ -116,7 +116,7 @@
  	<tbody>
  		<tr th:each="alunos : ${listarAlunos}">
 			<td th:text="${alunos.id}"> 1 </td>
-		 	<td th:text="${alunos.nome_aluno}">  Nome do Aluno </td>
+		 	<td th:text="${alunos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(alunos.data_nasc, 'dd-MM-yyyy')}">  Data Nasc. </td>
 		 	<td th:text="${alunos.categoria}"> Categoria </td>
 		 	<td th:text="${alunos.turma}"> Turma </td>

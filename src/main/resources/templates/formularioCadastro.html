@@ -117,10 +117,12 @@
 <form action="#" th:action="@{/salvar}" th:object="${alunos}" method="post"> 	
 	
 	<div class="form-group">
-		<label for="nome_aluno">Nome do Aluno:</label>		
-		<input class="form-control" th:field="*{nome_aluno}" name="nome_aluno" placeholder="Informe o nome do Aluno:" autofocus="autofocus">
+		<label for="nome">Nome do Aluno:</label>		
+		<input class="form-control" th:field="*{nome}" name="nome" placeholder="Informe o nome do Aluno:" autofocus="autofocus">
 		<div class="col-sm-5">
-			<small><span class="mensagem" th:if="${#fields.hasErrors('nome_aluno')}" th:errors="*{nome_aluno}"></span></small>
+			<small><span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span></small>
+			<small><span class="mensagem" th:if="${alunoExiste}" th:text="${alunoExiste}"></span></small>
+		
 		</div>
 	</div>
 	
