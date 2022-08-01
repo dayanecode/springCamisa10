@@ -202,7 +202,7 @@
 	
 	<div class="form-group">
 		<label for="telefone">Telefone (com DDD):</label>
-		<input class="form-control" th:field="*{telefone}" name="telefone" placeholder="Informe o telefone para contato: 119XXXXXXXX" maxlength="11">
+		<input class="form-control" th:field="*{telefone}" name="telefone" placeholder="Informe o telefone para contato: 119XXXXXXXX" maxlength="17">
 	  <div class="col-sm-5">
 			<small><span  class="mensagem" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span></small>
 		</div>
