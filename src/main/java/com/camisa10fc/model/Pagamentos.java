@@ -23,7 +23,7 @@ public class Pagamentos {
 	
 	@NotEmpty (message = "O nome do aluno não pode ser vazio")
 	@NotNull (message = "Aluno não localizado")
-	private String nome_aluno;
+	private String nome;
 	
 	@NotNull (message = "Insira o valor pago")
 	private BigDecimal valor;
@@ -48,13 +48,13 @@ public class Pagamentos {
 	}
 	
 	public Pagamentos(Long id,
-			@NotEmpty(message = "O nome do aluno não pode ser vazio") @NotNull(message = "Aluno não localizado") String nome_aluno,
+			@NotEmpty(message = "O nome do aluno não pode ser vazio") @NotNull(message = "Aluno não localizado") String nome,
 			@NotNull(message = "Insira o valor") BigDecimal valor, Date data_pagamento,
 			@NotNull(message = "Insira a forma de pagamento") String forma_pagamento,
 			@NotNull(message = "Insira a referência") String referencia, String observacoes, String comprovante) {
 		super();
 		this.id = id;
-		this.nome_aluno = nome_aluno;
+		this.nome = nome;
 		this.valor = valor;
 		this.data_pagamento = data_pagamento;
 		this.forma_pagamento = forma_pagamento;
@@ -71,12 +71,12 @@ public class Pagamentos {
 		this.id = id;
 	}
 
-	public String getNome_aluno() {
-		return nome_aluno;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNome_aluno(String nome_aluno) {
-		this.nome_aluno = nome_aluno;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public BigDecimal getValor() {

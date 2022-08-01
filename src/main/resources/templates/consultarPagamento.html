@@ -112,7 +112,7 @@
  	<tbody>
  		<tr th:each="pagamentos : ${consultarPagamento}">
 			<td th:text="${pagamentos.id}"> 1 </td>
-		 	<td th:text="${pagamentos.nome_aluno}">  Nome do Aluno </td>
+		 	<td th:text="${pagamentos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(pagamentos.data_pagamento, 'dd-MM-yyyy')}">Data do Pagamento</td>
 			<td th:text="${pagamentos.valor}"> Valor </td>
 		 	<td th:text="${pagamentos.forma_pagamento}"> Forma de Pagamento </td>
