@@ -94,7 +94,25 @@
         </div>
     </nav>
     <!-- fim menu -->
+    
+    <br>
+    <br>
 
+
+<form action="pesquisarPagamento" method="post">
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nome do Aluno:</span>
+  	</div>
+  	<input name="nomePesquisado" type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-default">
+	<input class="btn btn-outline-primary btn-sm" type="submit" value="Pesquisar Pagamento" >	
+</div>
+
+</form>
+
+<br>
+<br>
  
 <div >
 	<table class="table table-striped" >
@@ -110,7 +128,7 @@
 			</tr>
  	</thead>
  	<tbody>
- 		<tr th:each="pagamentos : ${consultarPagamento}">
+ 		<tr th:each="pagamentos : ${pagamentos}">
 			<td th:text="${pagamentos.id}"> 1 </td>
 		 	<td th:text="${pagamentos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(pagamentos.data_pagamento, 'dd-MM-yyyy')}">Data do Pagamento</td>
