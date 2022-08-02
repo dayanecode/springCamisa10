@@ -76,7 +76,6 @@ public class PagamentosController {
 				
 	}
 	
-	
 	@PostMapping("/pesquisarPagamento")
 	public ModelAndView pesquisar (@RequestParam("nomePesquisado") String nomePesquisado) {
 		ModelAndView modelAndView = new ModelAndView("consultarPagamento");

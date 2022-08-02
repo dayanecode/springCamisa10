@@ -66,5 +66,35 @@ public class AlunosController {
 //		return "redirect:/listarAlunos";
 		
 	}
+	
+	@GetMapping ("/editarAluno/{id}")	
+	public String editarAluno(@PathVariable("id") long id, Model model) {
+		Optional<Alunos> alunoAnterior = alunosRepository.findById(id);
+		
+		if (!alunoAnterior.isPresent() ) {
+		throw new IllegalArgumentException("Aluno não localizado:" + id);	
+		} 
+		Alunos alunos = alunoAnterior.get();
+		model.addAttribute("alunos", alunos);
+		return "salvar-alteracao-aluno";
+		}
+	
+	
+	@PostMapping("/editarAluno/{id}")
+	public String editarAluno(@PathVariable("id") long id,
+			@Valid Alunos alunos, BindingResult result) {
+		if (result.hasErrors()) {
+			alunos.setId(id);
+			return "salvar-alteracao-aluno";
+		}
+		alunosRepository.save(alunos);
+		return "redirect:/listarAlunos";
+				
+	}
+	
+	
+	
+	
+	
 
 }
