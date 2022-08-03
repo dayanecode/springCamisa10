@@ -61,12 +61,21 @@ public class Alunos {
 	
 	private String observacoes;	
 	private String situacao = "ATIVO";
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat (pattern = "yyyy-MM-dd")
+	private Date dataInclusao = new java.util.Date();
+		
+	private String usuarioInclusao = "system";		
 		
 		
+
 	public Alunos() {
 		super();
 	}
 
+		
+	
 	public Alunos(Long id,
 			@NotNull @Size(min = 3, message = "O nome do aluno deve conter mais de dois dígitos") String nome,
 			Date data_nasc, int idade, @NotEmpty(message = "Selecione a categoria") String categoria,
@@ -75,7 +84,7 @@ public class Alunos {
 			@NotEmpty(message = "Informe o nome do responsável pelo aluno") String responsavel,
 			@NotEmpty(message = "Informe o telefone para contato") String telefone, String logradouro, String numero,
 			String complemento, String bairro, String cidade, String estado, String cep, String observacoes,
-			String situacao) {
+			String situacao, Date dataInclusao, String usuarioInclusao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -97,8 +106,30 @@ public class Alunos {
 		this.cep = cep;
 		this.observacoes = observacoes;
 		this.situacao = situacao;
+		this.dataInclusao = dataInclusao;
+		this.usuarioInclusao = usuarioInclusao;
 	}
 
+
+
+	public Date getDataInclusao() {
+		return dataInclusao;
+	}
+
+	public void setDataInclusao(Date dataInclusao) {
+		this.dataInclusao = dataInclusao;
+	}
+
+	public String getUsuarioInclusao() {
+		return usuarioInclusao;
+	}
+
+	public void setUsuarioInclusao(String usuarioInclusao) {
+		this.usuarioInclusao = usuarioInclusao;
+	}
+
+	
+	
 	public Long getId() {
 		return id;
 	}

@@ -44,11 +44,16 @@ h5 {
 }
 
 
-.bi {
+.fab {
     text-decoration: none;
     color: #fff;
-    font-size: 50px;
+    font-size: 20px;
     text-align: center;
+}
+
+.fab:hover{
+	 color: orange  ;
+	
 }
 
 .icones {
@@ -102,5 +107,10 @@ img {
 .instagram {
     text-decoration: none;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
+}
+
+.instagram:hover{
+	 color: orange  ;
+	
 }

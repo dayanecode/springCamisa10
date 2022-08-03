@@ -11,9 +11,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 public class Pagamentos {
@@ -42,16 +41,23 @@ public class Pagamentos {
 	
 	private String comprovante;	
 	
-	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat (pattern = "yyyy-MM-dd")
+	private Date dataInclusao = new java.util.Date();
+		
+	private String usuarioInclusao = "system";		
+		
 	public Pagamentos() {
 		super();
 	}
 	
+	
 	public Pagamentos(Long id,
 			@NotEmpty(message = "O nome do aluno não pode ser vazio") @NotNull(message = "Aluno não localizado") String nome,
-			@NotNull(message = "Insira o valor") BigDecimal valor, Date data_pagamento,
-			@NotNull(message = "Insira a forma de pagamento") String forma_pagamento,
-			@NotNull(message = "Insira a referência") String referencia, String observacoes, String comprovante) {
+			@NotNull(message = "Insira o valor pago") BigDecimal valor, Date data_pagamento,
+			@NotEmpty(message = "Insira a forma de pagamento") String forma_pagamento,
+			@NotEmpty(message = "Insira a referência") String referencia, String observacoes, String comprovante,
+			Date dataInclusao, String usuarioInclusao) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -61,7 +67,29 @@ public class Pagamentos {
 		this.referencia = referencia;
 		this.observacoes = observacoes;
 		this.comprovante = comprovante;
+		this.dataInclusao = dataInclusao;
+		this.usuarioInclusao = usuarioInclusao;
 	}
+
+
+
+	public Date getDataInclusao() {
+		return dataInclusao;
+	}
+
+	public void setDataInclusao(Date dataInclusao) {
+		this.dataInclusao = dataInclusao;
+	}
+
+	public String getUsuarioInclusao() {
+		return usuarioInclusao;
+	}
+
+	public void setUsuarioInclusao(String usuarioInclusao) {
+		this.usuarioInclusao = usuarioInclusao;
+	}
+
+	
 
 	public Long getId() {
 		return id;
