@@ -41,7 +41,7 @@ public class Pagamentos {
 	
 	private String comprovante;	
 	
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE) // Isso converte a data em dia, mês e ano e elimina as horas minutos e segundos etc.
 	@DateTimeFormat (pattern = "yyyy-MM-dd")
 	private Date dataInclusao = new java.util.Date();
 		
@@ -90,7 +90,6 @@ public class Pagamentos {
 	}
 
 	
-
 	public Long getId() {
 		return id;
 	}
