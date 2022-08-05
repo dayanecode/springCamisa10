@@ -72,7 +72,7 @@ public class PagamentosController {
 			return "salvar-alteracao-pagamento";
 		}
 		pagamentosRepository.save(pagamentos);
-		return "redirect:/consultarPagamento";
+		return "redirect:/incluirPagamento";
 				
 	}
 	

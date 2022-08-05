@@ -38,11 +38,23 @@ h5 {
 
 /* Missão Visão e Valores */
 
-
 .col {
     text-align: center;
 }
 
+
+	/* Esconde o cabeçalho da tabela */
+	thead {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+    /* Adiciona uma borda externa em cada registro*/
+	tr {
+		border: 1px solid #ccc;
+	}
+ 
 
 .fab {
     text-decoration: none;
