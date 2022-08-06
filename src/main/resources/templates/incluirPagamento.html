@@ -98,23 +98,30 @@
 <!-- Botão Para inclusão de um novo aluno -->
 <div class="form-group">
   	<div class="form-row">
+  	<div class="form-group col-md-1">     	  	
+   	  </div>   	 	 	
    		<div class="form-group col-md-2">    
-   			<a class="btn btn-warning btn-sm" href="/cadastrarAluno">Incluir Novo Aluno</a>	  	 	  	
+   			<a class="btn btn-danger btn-lg" href="/cadastrarAluno">INCLUIR ALUNO</a>	  	 	  	
    	 	</div>   	 	
-   	 	<div class="form-group col-md-8">
-     		<h4>PESQUISAR ALUNO</h4> 
-    	</div> 	    	
+   	 	<div class="form-group col-md-6">
+     		<h1>PESQUISAR ALUNO</h1> 
+    	</div>
+   		<div class="form-group col-md-2">
+   			<a class="btn btn btn-success btn-lg" href="/inserirPagamento">INCLUIR PAGAMENTO</a>    	  	 	  	
+   	 	</div>   	     	 
+   	 	<div class="form-group col-md-1">     	  	
+   	  </div>	    	
    	 </div> 		
   </div> 	        
 
 
 <form action="incluirPagamento" method="post">
-	<div class="input-group input-group">
+	<div class="input-group input-group-lg">
   		<div class="input-group-prepend">
     		<span class="input-group-text" id="inputGroup-sizing-lg">Nome do Aluno:</span>
   		</div>
   			<input name="nomePesquisado" type="text" class="form-control" aria-label="Exemplo do tamanho do input" aria-describedby="inputGroup-sizing-lg">	
-			<input class="btn btn-outline-primary btn-sm" type="submit" value="Pesquisar Aluno" >	
+			<input class="btn btn-outline-primary btn-lg" type="submit" value="Pesquisar Aluno" >	
 	</div>
 </form>
 
@@ -156,7 +163,7 @@
  </table>
 </div>	
 
-
+<br>
 
 <!-- Tabela que retorna pagamentos realizados-->
 
@@ -186,22 +193,7 @@
  	</tbody>
  </table>
 </div>	
-
-
-<!-- Botão Para inclusão de um novo pagamento -->
-<div class="form-group">
-  	<div class="form-row">
-   		<div class="form-group col-md-2">
-   			<a class="btn btn btn-success btn-sm" href="/inserirPagamento">Incluir Pagamento</a>    	  	 	  	
-   	 	</div>   	 	
-   	 	<div class="form-group col-md-10">
-     	
-    	</div> 	    	
-   	 </div> 		
-  </div> 	 	
-
-
-    
+   
   	<script 
   		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">   
