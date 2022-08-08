@@ -43,30 +43,22 @@ h5 {
 }
 
 
-	/* Esconde o cabeçalho da tabela */
+	/* Esconde o cabeçalho da tabela*/ 
 	thead {
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
 	}
 	
+	/* Não exibe as céluas vazias*/ 
+	table {
+		empty-cells: hide;
+	}
+	
     /* Adiciona uma borda externa em cada registro*/
 	tr {
 		border: 1px solid #ccc;
 	}
- 
-
-.fab {
-   
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-}
-
-.fab:hover{
-	 color: orange  ;
-	
-}
 
 .icones {
     height: 20px;
