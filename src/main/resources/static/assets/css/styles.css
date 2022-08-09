@@ -46,7 +46,7 @@ h5 {
 
 
 /* Missão Visão e Valores */
-.col {
+.card-deck {
     text-align: center;
     padding: 50px;	
 }
@@ -55,6 +55,11 @@ h5 {
 	font-size: 50px;
 	text-align: center;
 	padding: 15px;	
+}
+
+/* Treinadores */
+.col {
+    text-align: center; 
 }
 
 
@@ -122,11 +127,12 @@ img {
 .iconRedes {
     text-decoration: none;
     color: #fff;
+    
     font-size: 15px;
 }
 
 .iconRedes:hover{
-	 color: orange  ;
+	color: orange;
 	
 }
 
@@ -137,11 +143,11 @@ footer p {
 
 }
 
-footer.fixar-rodape{
+/** footer.fixar-rodape{
   border-top: 1px solid #333;
   bottom: 0;
   left: 0;
   height: auto;
   position: relative;
   width: 100%;
-}
+}**/
