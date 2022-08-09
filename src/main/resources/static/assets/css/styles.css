@@ -15,14 +15,6 @@
     background-color: #f60;
 }
 
-
-footer p {
-    font-size: small;
-    font-style: italic;
-    text-align: justify;
-
-}
-
 .redessociais {
     text-align: center;
     text-decoration: none;
@@ -117,4 +109,20 @@ img {
 .iconRedes:hover{
 	 color: orange  ;
 	
+}
+
+footer p {
+    font-size: small;
+    font-style: italic;
+    text-align: justify;
+
+}
+
+footer.fixar-rodape{
+  border-top: 1px solid #333;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  position: relative;
+  width: 100%;
 }
