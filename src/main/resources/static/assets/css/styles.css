@@ -1,6 +1,4 @@
 @charset "ISO-8859-1";
-
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 .titulos {
@@ -20,12 +18,10 @@ h1,
 h4,
 h5 {
     text-align: center;
-
 }
 
 
 /* COMO TUDO COMEÇOU - Vídeo Youtube*/
-
 .embed-container {
  position: relative;
  padding-bottom: 56.25%;
@@ -140,14 +136,4 @@ footer p {
     font-size: small;
     font-style: italic;
     text-align: justify;
-
 }
-
-/** footer.fixar-rodape{
-  border-top: 1px solid #333;
-  bottom: 0;
-  left: 0;
-  height: auto;
-  position: relative;
-  width: 100%;
-}**/
