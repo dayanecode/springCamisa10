@@ -135,7 +135,8 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
  	</thead>
  	<tbody>
  		<tr th:each="alunos : ${alunos}">
-			<td th:text="${alunos.id}"> 1 </td>
+			<td th:text="${alunosStat.index+1}"> 1 </td>
+			<!-- <td th:text="${alunos.id}"> 1 </td> -->
 		 	<td th:text="${alunos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(alunos.data_nasc, 'dd-MM-yyyy')}">  Data Nasc. </td>
 		 	<td th:text="${alunos.categoria}"> Categoria </td>
@@ -173,7 +174,8 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
  	</thead>
  	<tbody>
  		<tr th:each="pagamentos : ${pagamentos}">
-			<td th:text="${pagamentos.id}"> 1 </td>
+ 			<td th:text="${pagamentosStat.index+1}"> 1 </td>
+			<!-- <td th:text="${pagamentos.id}"> 1 </td> -->
 		 	<td th:text="${pagamentos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(pagamentos.data_pagamento, 'dd-MM-yyyy')}">Data do Pagamento</td>
 			<td th:text="${pagamentos.valor}"> Valor </td>
