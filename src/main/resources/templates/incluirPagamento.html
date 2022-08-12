@@ -121,13 +121,15 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 			<tr> 
 				<th scope="col"> # </th>
 				<th scope="col"> Nome do Aluno </th>
-				<th scope="col" > Nascimento</th>
+				<th scope="col"> Nascimento</th>
 				<th scope="col"> Categoria </th>
 				<th scope="col"> Turma </th>
 				<th scope="col"> Período </th>	
 				<th scope="col"> Responsável </th>	
 				<th scope="col"> Telefone </th>	
 				<th scope="col"> Situação </th>
+				<th scope="col"> Observações </th>
+				<th scope="col"> Data Inclusão </th>			
 				<th scope="col"> Ações </th>
 			</tr>
  	</thead>
@@ -141,7 +143,10 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 		 	<td th:text="${alunos.periodo}"> Período </td>	
 		 	<td th:text="${alunos.responsavel}"> Responsável 
 		 	<td th:text="${alunos.telefone}"> Telefone </td>		 	
-		 	<td th:text="${alunos.situacao}"> Situação </td>	 
+		 	<td th:text="${alunos.situacao}"> Situação </td>
+		 	<td th:text="${alunos.observacoes}"> Observações </td>
+		 	<td th:text="${#dates.format(alunos.dataInclusao, 'dd-MM-yyyy HH:mm')}"> Data Inclusão </td>		 	
+		 	 
 		 	<td> <a class="btn btn-outline-primary btn-sm" th:href="@{/editarAluno/{id}(id=${alunos.id})}">Editar</a> </td>
 		 </tr>
  	</tbody>
@@ -162,6 +167,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 				<th scope="col"> Forma de Pagamento </th>
 				<th scope="col"> Referência </th>
 				<th scope="col"> Observações </th>
+				<th scope="col"> Data Inclusão </th>
 				<th scope="col"> Ações </th>						
 			</tr>
  	</thead>
@@ -174,6 +180,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 		 	<td th:text="${pagamentos.forma_pagamento}"> Forma de Pagamento </td>
 		 	<td th:text="${pagamentos.referencia}"> Referência </td>
 		 	<td th:text="${pagamentos.observacoes}"> Observações </td>
+		 	<td th:text="${#dates.format(pagamentos.dataInclusao, 'dd-MM-yyyy HH:mm')}">Data da Inclusão</td>
 		 	<td> <a class="btn btn-outline-primary btn-sm" th:href="@{/editarPagamento/{id}(id=${pagamentos.id})}">Editar</a> </td>	 		 	
 		 </tr>
  	</tbody>
