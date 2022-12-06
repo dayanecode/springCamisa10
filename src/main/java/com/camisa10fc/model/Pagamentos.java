@@ -32,7 +32,6 @@ public class Pagamentos {
 	@NotNull (message = "Insira o valor pago")
 	private BigDecimal valor;
 	
-	//valor = new BigDecimal(valor.getText().replace(",",".")
 	
 	@Temporal(TemporalType.DATE) //sem esta opção o campo vira DateTime no Banco de Dados
 	@DateTimeFormat (pattern = "yyyy-MM-dd")

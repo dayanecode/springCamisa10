@@ -64,7 +64,7 @@ public class Alunos {
 	private String observacoes;	
 	private String situacao = "ATIVO";
 	
-	//@Temporal(TemporalType.DATE) // Isso converte a data em dia, mês e ano e elimina as horas minutos e segundos etc.
+	//@Temporal(TemporalType.DATE) // Isso converte a data em dia, mês e ano e elimina as horas minutos e segundos.
 	@DateTimeFormat (pattern = "yyyy-MM-dd")
 	private Date dataInclusao = new java.util.Date();
 		
