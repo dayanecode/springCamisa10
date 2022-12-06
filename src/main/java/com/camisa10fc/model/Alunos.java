@@ -10,6 +10,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,6 +23,7 @@ public class Alunos {
 	
 	@NotNull
 	@Size(min =3, message = "O nome do aluno deve conter mais de dois dígitos")
+	@Pattern (regexp = "([A-Z]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS")
 	private String nome;
 
 	
