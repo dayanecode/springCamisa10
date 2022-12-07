@@ -95,9 +95,14 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
   
   <br> 	
   
-  <div class="">	
-     		<h4>PESQUISAR HISTÓRICO DO ALUNO</h4> 
-    	</div>          
+  	<!-- AVISA SE O PAGAMENTO FOI EXCLUÍDO -->
+<div class="alert alert-warning alert-dismissible fade show" th:if="${mensagem}">
+	<span th:text="${mensagem}"></span>
+</div>
+  	
+<div class="">	
+    <h4>PESQUISAR HISTÓRICO DO ALUNO</h4> 
+</div>          
 
 
 <form action="incluirPagamento" method="post">
@@ -111,7 +116,6 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 </form>
 
 <br>
-
 
 <!-- Tabela que retorna aluno cadastrado-->
     
@@ -135,7 +139,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
  	</thead>
  	<tbody>
  		<tr th:each="alunos : ${alunos}">
-			<td th:text="${alunosStat.index+1}"> 1 </td>
+			<td th:text="${alunosStat.index+1}"> SQ </td>
 			<!-- <td th:text="${alunos.id}"> 1 </td> -->
 		 	<td th:text="${alunos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(alunos.data_nasc, 'dd-MM-yyyy')}">  Data Nasc. </td>
@@ -149,6 +153,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 		 	<td th:text="${#dates.format(alunos.dataInclusao, 'dd-MM-yyyy HH:mm')}"> Data Inclusão </td>		 	
 		 	 
 		 	<td> <a class="btn btn-outline-primary btn-sm" th:href="@{/editarAluno/{id}(id=${alunos.id})}">Editar</a> </td>
+		 	<td> <a class="btn btn-outline-warning btn-sm" th:href="@{/excluirAluno/{id}(id=${alunos.id})}">Excluir</a> </td>
 		 </tr>
  	</tbody>
  </table>
@@ -172,9 +177,11 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 				<th scope="col"> Ações </th>						
 			</tr>
  	</thead>
+ 	
+
  	<tbody>
  		<tr th:each="pagamentos : ${pagamentos}">
- 			<td th:text="${pagamentosStat.index+1}"> 1 </td>
+ 			<td th:text="${pagamentosStat.index+1}"> SQ </td>
 			<!-- <td th:text="${pagamentos.id}"> 1 </td> -->
 		 	<td th:text="${pagamentos.nome}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(pagamentos.data_pagamento, 'dd-MM-yyyy')}">Data do Pagamento</td>
@@ -183,7 +190,8 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
 		 	<td th:text="${pagamentos.referencia}"> Referência </td>
 		 	<td th:text="${pagamentos.observacoes}"> Observações </td>
 		 	<td th:text="${#dates.format(pagamentos.dataInclusao, 'dd-MM-yyyy HH:mm')}">Data da Inclusão</td>
-		 	<td> <a class="btn btn-outline-primary btn-sm" th:href="@{/editarPagamento/{id}(id=${pagamentos.id})}">Editar</a> </td>	 		 	
+		 	<td> <a class="btn btn-outline-primary btn-sm" th:href="@{/editarPagamento/{id}(id=${pagamentos.id})}">Editar</a> </td>
+		 	<td> <a class="btn btn-outline-warning btn-sm" th:href="@{/excluirPagamento/{id}(id=${pagamentos.id})}">Excluir</a> </td>	 		 		 	
 		 </tr>
  	</tbody>
  </table>

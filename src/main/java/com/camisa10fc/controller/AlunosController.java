@@ -53,18 +53,10 @@ public class AlunosController {
 	}
 	
 	@PostMapping ("/salvar")
-	public String salvarAluno(@Valid Alunos alunos, BindingResult result,
-				Model model, RedirectAttributes attributes) {
+	public String salvarAluno(@Valid Alunos alunos, BindingResult result, Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) { //verifica se existe algum erro na validação dos dados
 			return "formularioCadastro";
 		} 
-		
-//		Alunos aluno = alunosRepository.findByNome(alunos.getNome());
-//		if (aluno != null) {
-//			model.addAttribute("alunoExiste", "Nome do aluno já existe no cadastro");
-//			return "formularioCadastro";
-//		}
-	
 		alunosRepository.save(alunos);
 		attributes.addFlashAttribute("mensagem", "Aluno inserido com sucesso!");
 		return "redirect:/cadastrarAluno";
@@ -77,21 +69,21 @@ public class AlunosController {
 		
 		if (!alunoAnterior.isPresent() ) {
 		throw new IllegalArgumentException("Aluno não localizado:" + id);	
-		} 
+		} 	
+		
 		Alunos alunos = alunoAnterior.get();
 		model.addAttribute("alunos", alunos);
 		return "salvar-alteracao-aluno";
-		}
-	
-	
+	}
+
 	@PostMapping("/editarAluno/{id}")
-	public String editarAluno(@PathVariable("id") long id,
-			@Valid Alunos alunos, BindingResult result) {
+	public String editarAluno(@PathVariable("id") long id, @Valid Alunos alunos, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			alunos.setId(id);
 			return "salvar-alteracao-aluno";
 		}
 		alunosRepository.save(alunos);
+		attributes.addFlashAttribute("mensagem", "Dados do aluno alterados com sucesso!");
 		return "redirect:/incluirPagamento";
 				
 	}

@@ -35,9 +35,10 @@ public class PagamentosController {
 	}
 	
 	@PostMapping ("/salvarPagamento")
-	public String salvarPagamento(@Valid Pagamentos pagamentos, BindingResult result,
-				RedirectAttributes attributes) {
-		if (result.hasErrors()) { //verifica se existe algum erro na validação dos dados
+	public String salvarPagamento(@Valid Pagamentos pagamentos, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) { 
+//			System.out.println("NOME: " + pagamentos.getNome());
+//			System.out.println("VALOR: " + pagamentos.getValor());
 			return "formularioPagamento";
 		} 
 		pagamentosRepository.save(pagamentos);
@@ -63,10 +64,9 @@ public class PagamentosController {
 		model.addAttribute("pagamentos", pagamentos);
 		return "salvar-alteracao-pagamento";
 		}
-			
+	
 	@PostMapping("/editarPagamento/{id}")
-	public String editarPagamento(@PathVariable("id") long id,
-			@Valid Pagamentos pagamentos, BindingResult result) {
+	public String editarPagamento(@PathVariable("id") long id, @Valid Pagamentos pagamentos, BindingResult result) {
 		if (result.hasErrors()) {
 			pagamentos.setId(id);
 			return "salvar-alteracao-pagamento";
@@ -75,6 +75,19 @@ public class PagamentosController {
 		return "redirect:/incluirPagamento";
 				
 	}
+	
+	
+	@GetMapping ("/excluirPagamento/{id}")	
+	public String excluirPagamento(@PathVariable("id") long id, Model model,  RedirectAttributes attributes) {
+		Optional<Pagamentos> pagamentoAnterior = pagamentosRepository.findById(id);		
+		Pagamentos pagamentos = pagamentoAnterior.get();
+		pagamentosRepository.delete(pagamentos);
+//		model.addAttribute("pagamentos", pagamentos);
+		attributes.addFlashAttribute("mensagem", "Pagamento excluído!");
+		return "redirect:/incluirPagamento";
+		}
+	
+	
 	
 	@PostMapping("/pesquisarPagamento")
 	public ModelAndView pesquisar (@RequestParam("nomePesquisado") String nomePesquisado) {
