@@ -37,12 +37,10 @@ public class PagamentosController {
 	@PostMapping ("/salvarPagamento")
 	public String salvarPagamento(@Valid Pagamentos pagamentos, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) { 
-//			System.out.println("NOME: " + pagamentos.getNome());
-//			System.out.println("VALOR: " + pagamentos.getValor());
 			return "formularioPagamento";
 		} 
 		pagamentosRepository.save(pagamentos);
-		attributes.addFlashAttribute("mensagem", "Pagamento inserido com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Pagamento de " + pagamentos.getNome() + " inserido com sucesso!");
 		return "redirect:/inserirPagamento";	
 	}	
 	
@@ -66,12 +64,13 @@ public class PagamentosController {
 		}
 	
 	@PostMapping("/editarPagamento/{id}")
-	public String editarPagamento(@PathVariable("id") long id, @Valid Pagamentos pagamentos, BindingResult result) {
+	public String editarPagamento(@PathVariable("id") long id, @Valid Pagamentos pagamentos, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			pagamentos.setId(id);
 			return "salvar-alteracao-pagamento";
 		}
 		pagamentosRepository.save(pagamentos);
+		attributes.addFlashAttribute("mensagemSucesso", "Dados de " + pagamentos.getNome() + " alterados com sucesso!");
 		return "redirect:/incluirPagamento";
 				
 	}
@@ -82,8 +81,8 @@ public class PagamentosController {
 		Optional<Pagamentos> pagamentoAnterior = pagamentosRepository.findById(id);		
 		Pagamentos pagamentos = pagamentoAnterior.get();
 		pagamentosRepository.delete(pagamentos);
-//		model.addAttribute("pagamentos", pagamentos);
-		attributes.addFlashAttribute("mensagem", "Pagamento excluído!");
+		model.addAttribute("pagamentos", pagamentos);
+		attributes.addFlashAttribute("mensagemExclusao", "Pagamento de " + pagamentos.getNome() + " excluído do sistema." );
 		return "redirect:/incluirPagamento";
 		}
 	

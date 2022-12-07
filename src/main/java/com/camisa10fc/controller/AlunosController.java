@@ -58,7 +58,7 @@ public class AlunosController {
 			return "formularioCadastro";
 		} 
 		alunosRepository.save(alunos);
-		attributes.addFlashAttribute("mensagem", "Aluno inserido com sucesso!");
+		attributes.addFlashAttribute("mensagem", alunos.getNome() + " inserido(a) com sucesso!");
 		return "redirect:/cadastrarAluno";
 		
 	}
@@ -83,7 +83,7 @@ public class AlunosController {
 			return "salvar-alteracao-aluno";
 		}
 		alunosRepository.save(alunos);
-		attributes.addFlashAttribute("mensagem", "Dados do aluno alterados com sucesso!");
+		attributes.addFlashAttribute("mensagemSucesso", "Dados de " + alunos.getNome() + " alterados com sucesso!");
 		return "redirect:/incluirPagamento";
 				
 	}

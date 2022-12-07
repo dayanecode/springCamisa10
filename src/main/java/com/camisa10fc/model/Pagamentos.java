@@ -26,7 +26,7 @@ public class Pagamentos {
 	@NotEmpty (message = "O nome do aluno não pode ser vazio")
 	@NotNull (message = "Aluno não localizado")
 	@NotBlank (message = "Campo não informado")
-	@Pattern (regexp = "([A-Z]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS") 
+	@Pattern (regexp = "([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS") 
 	private String nome;
 	
 	@NotNull (message = "Insira o valor pago")
