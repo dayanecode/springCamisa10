@@ -48,9 +48,11 @@ public class PagamentosController {
 	@PostMapping("/incluirPagamento")
 	public ModelAndView pesquisar (@RequestParam("nomePesquisado") String nomePesquisado) {
 		ModelAndView modelAndView = new ModelAndView("incluirPagamento");
-		modelAndView.addObject("alunos", alunosRepository.findAlunosByName(nomePesquisado));
+		//Pesquisa o nome da Tabela Alunos
+		modelAndView.addObject("alunos", alunosRepository.findAlunosByName(nomePesquisado.trim()));
 		modelAndView.addObject("alunosObj", new Alunos());
-		modelAndView.addObject("pagamentos", pagamentosRepository.findPagamentosByName(nomePesquisado));
+		//Pesquisa o nome da Tabela Pagamentos
+		modelAndView.addObject("pagamentos", pagamentosRepository.findPagamentosByName(nomePesquisado.trim()));
 		modelAndView.addObject("pagamentosObj", new Pagamentos());		
 		return modelAndView;	
 		
