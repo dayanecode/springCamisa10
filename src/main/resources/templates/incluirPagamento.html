@@ -95,10 +95,22 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
   
   <br> 	
   
-  	<!-- AVISA SE O PAGAMENTO FOI EXCLUÍDO -->
+  	<!-- ALERTA SUCESSO-->
+<div class="alert alert-success alert-dismissible fade show" th:if="${mensagemSucesso}">
+	<span th:text="${mensagemSucesso}"></span>
+</div>
+
+  	<!-- ALERTA ATENÇÃO-->
 <div class="alert alert-warning alert-dismissible fade show" th:if="${mensagem}">
 	<span th:text="${mensagem}"></span>
 </div>
+
+
+  	<!-- ALERTA ATENÇÃO-->
+<div class="alert alert-danger alert-dismissible fade show" th:if="${mensagemExclusao}">
+	<span th:text="${mensagemExclusao}"></span>
+</div>
+
   	
 <div class="">	
     <h4>PESQUISAR HISTÓRICO DO ALUNO</h4> 
@@ -141,7 +153,7 @@ integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jI
  		<tr th:each="alunos : ${alunos}">
 			<td th:text="${alunosStat.index+1}"> SQ </td>
 			<!-- <td th:text="${alunos.id}"> 1 </td> -->
-		 	<td th:text="${alunos.nome}">  Nome do Aluno </td>
+		 	<td th:text="${alunos.nome.toUpperCase()}">  Nome do Aluno </td>
 			<td th:text="${#dates.format(alunos.data_nasc, 'dd-MM-yyyy')}">  Data Nasc. </td>
 		 	<td th:text="${alunos.categoria}"> Categoria </td>
 		 	<td th:text="${alunos.turma}"> Turma </td>
