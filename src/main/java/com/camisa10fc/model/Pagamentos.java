@@ -26,7 +26,7 @@ public class Pagamentos {
 	@NotEmpty (message = "O nome do aluno não pode ser vazio")
 	@NotNull (message = "Aluno não localizado")
 	@NotBlank (message = "Campo não informado")
-	@Pattern (regexp = "([a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS") 
+	@Pattern (regexp = "([a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+\\s?)+", message = "O nome não pode conter números nem caracteres especiais.") 
 	private String nome;
 	
 	@NotNull (message = "Insira o valor pago")
@@ -111,7 +111,7 @@ public class Pagamentos {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public BigDecimal getValor() {
