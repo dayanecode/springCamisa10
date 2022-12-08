@@ -13,12 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.camisa10fc.model.Alunos;
-import com.camisa10fc.model.Pagamentos;
 import com.camisa10fc.repository.AlunosRepository;
 import com.camisa10fc.repository.PagamentosRepository;
 
@@ -38,13 +35,6 @@ public class AlunosController {
 	public String home() {
 		return "home"; 	//busca o arquivo.html com este nome que estiver dentro de /templates 
 	}	
-	
-	@GetMapping("/listarAlunos") //Método que vai retornar as informações do banco de dados
-	public String listarAlunos (Model model) {		
-		List<Alunos> lista = alunosRepository.findAll(); //o List é o mesmo que um  Select * from SuaTabela definido pelo próprio  framework 
-		model.addAttribute("listarAlunos", lista);
-		return "listarAlunos";
-	}
 
 	@GetMapping("/cadastrarAluno")
 	public String adicionarAluno(Model model) {
@@ -87,35 +77,6 @@ public class AlunosController {
 		return "redirect:/incluirPagamento";
 				
 	}
-	
-	//Método que consultar o aluno antes de incluir o pagamento
-	@GetMapping("/incluirPagamento")
-	public String consultarPagamento (Model model) {	
-		//lista os alunos
-		List<Alunos> alunos = alunosRepository.findAll();  
-		model.addAttribute("incluirPagamento", alunos);	
-		//lista os pagamentos
-		List<Pagamentos> pagamentos = pagamentosRepository.findAll(); 
-		model.addAttribute("consultarPagamento", pagamentos);			
-		return "incluirPagamento";
-	}	
-		
-	
-	@PostMapping("/incluirPagamento")
-	public ModelAndView pesquisar (@RequestParam("nomePesquisado") String nomePesquisado) {
-		ModelAndView modelAndView = new ModelAndView("incluirPagamento");
-		modelAndView.addObject("alunos", alunosRepository.findAlunosByName(nomePesquisado));
-		modelAndView.addObject("alunosObj", new Alunos());
-		modelAndView.addObject("pagamentos", pagamentosRepository.findPagamentosByName(nomePesquisado));
-		modelAndView.addObject("pagamentosObj", new Pagamentos());		
-		return modelAndView;
-	
-		
-	}
-
-	
-	
-	
 	
 
 }
