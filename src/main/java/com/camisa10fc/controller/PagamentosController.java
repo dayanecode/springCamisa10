@@ -41,6 +41,7 @@ public class PagamentosController {
 		} 
 		pagamentosRepository.save(pagamentos);
 		attributes.addFlashAttribute("mensagem", "Pagamento de " + pagamentos.getNome() + " inserido com sucesso!");
+		System.out.println(pagamentos.getNome());
 		return "redirect:/inserirPagamento";	
 	}	
 	
@@ -60,6 +61,7 @@ public class PagamentosController {
 		} 
 		Pagamentos pagamentos = pagamentoAnterior.get();
 		model.addAttribute("pagamentos", pagamentos);
+		System.out.println(pagamentos.getNome());		
 		return "salvar-alteracao-pagamento";
 		}
 	
@@ -71,6 +73,7 @@ public class PagamentosController {
 		}
 		pagamentosRepository.save(pagamentos);
 		attributes.addFlashAttribute("mensagemSucesso", "Dados de " + pagamentos.getNome() + " alterados com sucesso!");
+		System.out.println(pagamentos.getNome());
 		return "redirect:/incluirPagamento";
 				
 	}

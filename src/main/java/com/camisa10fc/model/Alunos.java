@@ -23,7 +23,7 @@ public class Alunos {
 	
 	@NotNull
 	@Size(min =3, message = "O nome do aluno deve conter mais de dois dígitos")
-	@Pattern (regexp = "([A-ZÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS") 
+	@Pattern (regexp = "([a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+\\s?)+", message = "O NOME DEVE CONTER SOMENTE LETRAS MAIÚSCULAS") 
 	private String nome;
 
 	
